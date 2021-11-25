@@ -1,3 +1,3 @@
 function testowFunckja(){
-  console.log(to tylko do testowania);
+  console.log("to tylko do testowania");
 }
