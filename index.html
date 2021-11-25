@@ -5,31 +5,32 @@
     <title>Zadanie 7</title>
   </head>
   <body>
-  <h2>Ile razy chcesz wyświetlic te elementy</h2>
-  <form>
-  <input type="text" id="name">
-  <input type="text" id="name2">
-  </form>
-  <button onclick="pobieramyFilmy()">Wyswietl</button>
-    <div id="mainDiv"></div>
-  <script>
-   async function pobieramyFilmy() {
-      const url = "https://api.themoviedb.org/3/movie/popular?api_key=89e9bc9ed192ea9b6c18369d13c01ad5&language=pl-PL&page=1";
-      let response = await fetch(url);
-      let pobraneDane = await response.json();
-       console.log(pobraneDane);
-       for (let i=0; i<10; i++){
-       let mainDiv = document.getElementById('mainDiv');
-       let div1 = document.createElement("div");
-       mainDiv.appendChild(div1);
-       let naglowek = document.createElement("h1");
-       div1.appendChild(naglowek);
-       naglowek.innerText = pobraneDane.results[i].title;
-       let naglowek2 = document.createElement("h4");
-       div1.appendChild(naglowek2);
-       naglowek2.innerText= pobraneDane.results[i].overview;
-          }
+    <h2>Ile razy chcesz wyświetlic te elementy</h2>
+    <form>
+      <input type="text" id="name">
+      <input type="text" id="name2">
+    </form>
+    <button onclick="pobieramyFilmy()">Wyswietl</button>
+      <div id="mainDiv"></div>
+    <script>
+
+    async function pobieramyFilmy() {
+        const url = "https://api.themoviedb.org/3/movie/popular?api_key=89e9bc9ed192ea9b6c18369d13c01ad5&language=pl-PL&page=1";
+        let response = await fetch(url);
+        let pobraneDane = await response.json();
+        console.log(pobraneDane);
+        for (let i=0; i<10; i++){
+        let mainDiv = document.getElementById('mainDiv');
+        let div1 = document.createElement("div");
+        mainDiv.appendChild(div1);
+        let naglowek = document.createElement("h1");
+        div1.appendChild(naglowek);
+        naglowek.innerText = pobraneDane.results[i].title;
+        let naglowek2 = document.createElement("h4");
+        div1.appendChild(naglowek2);
+        naglowek2.innerText= pobraneDane.results[i].overview;
+        }
       }
-  </script>
+   </script>
   </body>
 </html>
